@@ -47,11 +47,7 @@ var novaLista = liberarBebidas(lista)
 console.log(novaLista)
 
 // ex 07
-// um exemplo com a função de camarote...
-// var listaCamarote = separarCamarote(convidadosComBebidasProcessada);
-// function fazerUmFiltro(umaListaDeObjetos) {
-//     var listaFiltrada = umaListaDeObjetos.filter((objeto) => objeto.propriedade === "valor");
-//       return listaFiltrada;
+
 
 function separarCamarote(lista) {
     var camarote = lista.filter((lista) => lista.setor === "camarote") ;
@@ -76,7 +72,7 @@ function separarArquibancada(lista) {
 var arquibancada = separarArquibancada(novaLista);
 console.log (arquibancada)
 
-//ex08
+//ex08 e 09
 
 var ulCamarote = document.getElementById('listaCamarote');
 var ulArquibancada = document.getElementById('listaArquibancada');
@@ -87,44 +83,20 @@ function montaNome (convidado) {
 
 }
 
+const marcarOpenBar = (convidado) => {
+    return convidado.openBar ? "🍹" : "🔞";
+  };
+
 arquibancada.forEach((convidado) => {
-    ulArquibancada.innerHTML += `<li>${montaNome(convidado)}</li>`;
+    ulArquibancada.innerHTML += `<li>${montaNome(convidado)} ${marcarOpenBar(convidado)}</li>`;
 });
 
 camarote.forEach ((convidado) => {
-    ulCamarote.innerHTML += `<li>${montaNome(convidado)}</li>`;
+    ulCamarote.innerHTML += `<li>${montaNome(convidado)}${marcarOpenBar(convidado)}</li>`;
 })
 
 pista.forEach ((convidado) => {
-    ulPista.innerHTML += `<li>${montaNome(convidado)}</li>`;
+    ulPista.innerHTML += `<li>${montaNome(convidado)}${marcarOpenBar(convidado)}</li>`;
 }) 
 
-
-//ex 09
-
-camarote.forEach ((nome) => {
-    if (nome.openBar) {
-        ulCamarote.innerHTML +=  montaNome(nome) + '🤩';
-    }else {
-        ulCamarote.innerHTML += montaNome(nome) + '😪';
-         
-    }
-})  
-pista.forEach ((nome) => {
-    if (nome.openBar) {
-        ulPista.innerHTML += montaNome(nome) + '🤩';
-    }else {
-        ulPista.innerHTML += montaNome(nome) + '😪';
-         
-    }
-})  
-
-arquibancada.forEach ((nome) => {
-    if (nome.openBar) {
-        ulArquibancada.innerHTML +=  montaNome(nome) + '🤩';
-    }else {
-        ulArquibancada.innerHTML += montaNome(nome) + '😪';
-         
-    }
-})  
 
